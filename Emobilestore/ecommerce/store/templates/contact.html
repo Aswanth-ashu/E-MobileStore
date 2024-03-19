@@ -1,0 +1,80 @@
+
+{% extends 'layout/main.html'%}
+{% load static %}
+{% block css %}
+<style>
+   body {
+       font-family: Arial, sans-serif;
+       background-color: #f2f2f2;
+       margin: 0;
+       padding: 0;
+   }
+
+   h1 {
+       text-align: center;
+       margin-top: 20px;
+   }
+
+   #customer-form {
+       background-color: #ffffff;
+       max-width: 400px;
+       margin: 0 auto;
+       padding: 20px;
+       border-radius: 5px;
+       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+   }
+
+   label {
+       display: block;
+       margin-bottom: 5px;
+       font-weight: bold;
+   }
+
+   input[type="text"],
+   input[type="email"],
+   textarea {
+       width: 100%;
+       padding: 10px;
+       margin-bottom: 10px;
+       border: 1px solid #ccc;
+       border-radius: 4px;
+   }
+
+   button[type="submit"] {
+       background-color: #007BFF;
+       color: #ffffff;
+       border: none;
+       padding: 10px 20px;
+       border-radius: 4px;
+       cursor: pointer;
+   }
+
+   button[type="submit"]:hover {
+       background-color: #0056b3;
+   }
+</style>
+
+
+
+{% endblock css %}
+  {% block body %}
+    <h1>ENTER YOUR DETIALS</h1>
+     <form id="customer-form" action="{% url 'coustmerdet'%}" method="post">
+      {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="phone">phone:</label>
+        <input type="phone" id="phone" name="phone" required><br>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea><br> 
+        <a href="payment.html"><button type="submit" name='payment'>Continue to Payment</button></a>
+    </form>
+    {% endblock body %} 
+    
+
+  

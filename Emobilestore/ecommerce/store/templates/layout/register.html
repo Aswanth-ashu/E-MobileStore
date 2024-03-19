@@ -1,0 +1,93 @@
+{% extends 'layout/main.html'%}
+{% load static %}
+
+{% block css %}
+<style>
+    form{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    label{
+        margin-top:10px;
+        margin-buttom:5px;
+        font-weight: bold;
+    }
+
+    input[type="password"]{
+        padding:5px;
+        border-radius:5px;
+        border:1px solid #ccc;
+        width:250px;
+        margin-bottom: 15px;
+    }
+
+
+    input[type="submit"]{
+        background-color: #4CAF50;
+        color: white;
+        padding:10px;
+        border:none;
+        border-radius:5px;
+        width:100%;
+        cursor:pointer;
+        margin-top: 15px;
+
+    }
+    input[type="submit"]:hover{
+        background-color:#45a049;
+
+    }
+    input[type="text"]{
+        padding:5px;
+        border-radius:5px;
+        border:1px solid #ccc;
+        width:250px;
+        margin-bottom: 15px;
+    }
+
+    input[type="email"]{
+        padding:5px;
+        border-radius:5px;
+        border:1px solid #ccc;
+        width:250px;
+        margin-bottom: 15px;
+    }
+
+
+</style>    
+
+{% endblock css %}
+
+
+{% block body %}
+<form action="" method="post">
+     {% csrf_token %}
+    <h2>Registraion form</h2>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="username" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="confirm-password">Confirm-password:</label>
+    <input type="password" id="confirm-password" name="confirm-password" required>
+
+    <input type="submit" value="Register">
+
+</form>
+{% for messages in messages %}
+
+<h3 style="color:red">{{messages}}</h3>
+{% endfor %}
+
+
+     
+
+
+{% endblock body %}
